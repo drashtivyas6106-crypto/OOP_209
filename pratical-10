@@ -1,0 +1,43 @@
+class BankAccount {
+    String account_holder_name;
+    double balance;
+    static double interest_rate;
+
+    BankAccount(String name, double bal) {
+        account_holder_name = name;
+        balance = bal;
+    }
+
+    double calculateInterest() {
+        return balance * interest_rate / 100;
+    }
+
+    void display() {
+        System.out.println("Name: " + account_holder_name);
+        System.out.println("Balance: " + balance);
+        System.out.println("Interest Earned: " + calculateInterest());
+    }
+
+    static void updateInterestRate(double rate) {
+        interest_rate = rate;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount.updateInterestRate(5);
+
+        BankAccount b1 = new BankAccount("Amit", 10000);
+        BankAccount b2 = new BankAccount("Riya", 20000);
+
+        b1.display();
+        b2.display();
+
+        BankAccount.updateInterestRate(7);
+
+        System.out.println("After updating interest rate:");
+
+        b1.display();
+        b2.display();
+    }
+}
