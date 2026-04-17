@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+class Employee {
+    String name, department;
+
+    void getData(String name, String department) {
+        this.name = name;
+        this.department = department;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Department: " + department);
+    }
+}
+
+class Manager extends Employee {
+    int teamSize;
+    String projectName;
+
+    void getManagerData(String name, String department, int teamSize, String projectName) {
+        this.name = name;
+        this.department = department;
+        this.teamSize = teamSize;
+        this.projectName = projectName;
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Department: " + department);
+        System.out.println("Team Size: " + teamSize);
+        System.out.println("Project: " + projectName);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Employee e = new Employee();
+        System.out.print("Enter Employee Name and Department: ");
+        e.getData(sc.next(), sc.next());
+        e.displayDetails();
+
+        Manager m = new Manager();
+        System.out.print("Enter Manager Name, Department, Team Size, Project: ");
+        m.getManagerData(sc.next(), sc.next(), sc.nextInt(), sc.next());
+        m.displayDetails();
+    }
+}
